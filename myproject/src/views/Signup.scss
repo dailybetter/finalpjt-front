@@ -1,11 +1,12 @@
 $default    :   #C5C5C5;
-$green-1    :   #75CC65;
+$green-1    :   #4ADE80;
 $green-2    :   #3be71c;
 $transiton  :   all 500ms ease;
 
 body{
-    background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
-    color: #ffffff;
+    // background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+    background-color: black;
+    // color: #ffffff;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -139,6 +140,7 @@ body{
 
 .controls{
     display: flex;
+    justify-content: space-between;
 }
 
 .btn{
@@ -161,7 +163,7 @@ body{
     
 
     &:disabled{
-        opacity: 0.5;
+        opacity: 0;
         pointer-events: none;
     }
 
@@ -171,8 +173,30 @@ body{
         color: #fff;
         margin-left: auto;
     }
+    &--complete{
+        background-color: $green-1;
+        border-color: $green-1;
+        color: #fff;
+        margin-left: auto;
+    }
 }
 .btn:hover{
     background-color: $green-2;
     border-color: $green-2;
+}
+.stepper-complete{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &--img{
+        width: 50%;
+        height: 50%;
+        // position: center;
+        object-fit: cover;
+    }
+    &:disabled{
+        opacity: 0;
+    }
 }
