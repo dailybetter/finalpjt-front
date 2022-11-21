@@ -77,19 +77,19 @@
           <img class= "stepper-complete stepper-complete--img" src="@/assets/welcomeEmoji.gif" alt="">
         </div>
       </div>
-      <div class="stepper-content">
+      <!-- <div class="stepper-content">
         <div class="stepper-complete" v-if="step == 5" :disabled="step<5">
           <img class= "stepper-complete stepper-complete--img" src="@/assets/welcomeEmoji.gif" alt="">
           <button class="btn btn--complete" @click="goMain" :disabled="step<5">
           Go
           </button>
         </div>
-      </div>
+      </div> -->
       <div class="controls">
         <button class="btn" @click.prevent="step--" :disabled="step == 1 ||step == 5">
           Before
         </button>
-        <button class="btn btn--complete" @click.prevent="step++" :disabled="step<4 || step == 5">
+        <button class="btn btn--complete" @click.prevent="dataPost" :disabled="step<4 || step == 5">
           Welcome
         </button>
         <button class="btn btn--green-1" @click.prevent="step++" :disabled="step == 4 || step == 5 || !idCheck">
@@ -113,8 +113,9 @@ export default {
       password2: "",
       mids: [],
       genrepick: "",
+      genres:"",
       idCheck: false,
-      genrePickCheck: [],
+      genreMid:[],
     }
   },
   computed: {
@@ -169,6 +170,16 @@ export default {
         .catch((err) =>{
           console.log(err)
         })
+    },
+    dataPost(){
+      axios.post(`http://127.0.0.1:8000/accounts/signup/`,{
+        data: {
+          username: this.username,
+          password1: this.password1,
+          password2: this.password2,
+          mids: this.genrePickCheck
+        }
+      })
     },
     goMain(){
       console.log('gomain')
