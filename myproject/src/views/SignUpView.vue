@@ -104,6 +104,7 @@
 import axios from 'axios'
 
 export default {
+  name: 'SignUpView',
   data(){
     return{
       step: 1,
@@ -113,6 +114,7 @@ export default {
       password2: "",
       mids: [],
       genrepick: "",
+      pickedgenreMovies:[],
       genres:"",
       idCheck: false,
       genreMid:[],
@@ -164,8 +166,9 @@ export default {
         }
       })
         .then((res) =>{
+          this.pickedgenreMovies = res
           this.genrePickCheck.push(res.data[0], res.data[1], res.data[2])
-          console.log(this.genrePickCheck) 
+          // console.log(this.genrePickCheck)
         })
         .catch((err) =>{
           console.log(err)

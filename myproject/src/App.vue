@@ -1,18 +1,21 @@
 <template>
   <div>
     <!-- <intro-view></intro-view> -->
-    <SignUpView/>
+    <!-- <SignUpView/> -->
+    <MainView/>
   </div>
 </template>
 
 <script>
 // import HelloTailVue from './views/HelloTail.vue';
 // import IntroView from './views/IntroView.vue';
-import SignUpView from './views/SignUp.vue'
+// import SignUpView from './views/SignUp.vue'
+import MainView from './views/Main/MainView.vue';
 export default {
-  components: { SignUpView },
+  components: { MainView },
   comments: {
-    SignUpView
+    MainView
+    // SignUpView
     // IntroView,
     // HelloTailVue
   }
