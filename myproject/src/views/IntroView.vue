@@ -23,7 +23,7 @@
                   </div>
                   <button type="submit" class="w-full text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center">로그인</button>
                   <p class="text-sm font-light text-white">
-                      회원이 아닌가요? <a href="#" class="font-medium text-green-400 hover:underline">SIGN UP</a>
+                      회원이 아닌가요? <router-link :to="{name: 'SignupView'} ">SIGN UP</router-link>
                   </p>
               </form>
         </div>
@@ -38,14 +38,13 @@ export default {
   name: 'IntroView',
   data() {
     return{
-      
+      username: null,
+      password: null,
     }
   },
   created() {
-    console.log('created')
-    const welcomSection = document.querySelector('.welcome-section');
+    // const welcomSection = document.querySelector('.welcome-section');
     this.lightOn()
-    console.log(welcomSection)
   },
   methods: {
     goMain() {
@@ -58,8 +57,17 @@ export default {
         const welcomSection = document.querySelector('.welcome-section');
         welcomSection.classList.remove('content-hidden');
       }, 80);
-      console.log('settime')
     },
+    submitForm() {
+      const {username, password} = this
+      const payload = {
+        username,
+        password,
+      }
+      this.$store.dispatch("login",payload)
+      this.username = ""
+      this.password = ""
+    }
   },
 };
 

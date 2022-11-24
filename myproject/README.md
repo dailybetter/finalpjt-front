@@ -1,4 +1,4 @@
-# myproject
+# final-pjt-front
 
 ## Project setup
 ```
